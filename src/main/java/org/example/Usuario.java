@@ -5,11 +5,12 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "user" )
 public class Usuario {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-private String nombre;
+
+private String NombreApellido;
 
 private int cedula;
 
@@ -17,27 +18,23 @@ private int cedula;
     public Usuario() {
     }
 
-    public Usuario(int id, String nombre, int cedula) {
-        this.id = id;
-        this.nombre = nombre;
+    public Usuario(String NombreApellido, int cedula) {
+        this.NombreApellido  = NombreApellido ;
         this.cedula = cedula;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreApellido() {
+        return NombreApellido;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreApellido(String NombreApellido) {
+        this.NombreApellido = NombreApellido;
     }
 
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getCedula() {
         return cedula;

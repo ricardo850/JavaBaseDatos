@@ -8,8 +8,18 @@ import org.hibernate.cfg.Configuration;
 public class Main {
     public static void main(String[] args) {
         Session session = new Configuration()
-                .configure("hibernate.cfg.xml");
+                .configure("hibernate.cfg.xml")
+                .buildSessionFactory()
+                .openSession();
 
+        session.beginTransaction();
+        Usuario user1 = new Usuario();
+        user1.setNombreApellido("richard");
+        user1.setCedula(107474774);
+        session.save(user1);
+
+        session.getTransaction().commit();
+        session.close();
 
     }
 }
