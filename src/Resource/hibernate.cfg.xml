@@ -16,7 +16,7 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Clases mapeadas -->
-        <mapping class="com.tuempresa.modelo.TuEntidad"/>
+        <mapping class="org.example.Usuario"/>
 
     </session-factory>
 </hibernate-configuration>
