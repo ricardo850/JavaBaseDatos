@@ -1,25 +1,22 @@
 package org.example;
 
-import org.hibernate.Session;
-import org.hibernate.cfg.Configuration;
+import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Session session = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .buildSessionFactory()
-                .openSession();
 
-        session.beginTransaction();
-        Usuario user1 = new Usuario();
-        user1.setNombreApellido("richard");
-        user1.setCedula(107474774);
-        session.save(user1);
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("escribe tu nombre:");
 
-        session.getTransaction().commit();
-        session.close();
+        String NombreApellido = teclado.nextLine();
+        teclado = new Scanner(System.in);
+
+        System.out.println("escribe tu cedula:");
+        int cedula = teclado.nextInt();
+
+        MetodoUsuario MetodosBaseDatos = new MetodoUsuario();
+        MetodosBaseDatos.IngresarDatos(NombreApellido,cedula);
+
 
     }
 }
