@@ -32,6 +32,8 @@ public class Main {
         int cedulaActualizar = teclado.nextInt();
 
         MetodosBaseDatos.ActualizarDatos(cedulaBuscar,NombreApellidoActualizar,cedulaActualizar);
-
+        System.out.println("escribe la cedula del dato que vas a eliminar");
+        int cedulaEliminar = teclado.nextInt();
+        MetodosBaseDatos.EliminarDatos(cedulaEliminar);
     }
 }

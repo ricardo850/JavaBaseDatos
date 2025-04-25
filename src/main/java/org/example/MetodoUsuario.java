@@ -49,6 +49,17 @@ public class MetodoUsuario {
 
     }
 
+    public void EliminarDatos(int cedulaDatoEliminar){
+        ConfigHibernate();
+        session.beginTransaction();
+        session.createQuery("delete from Usuario where cedula = " + cedulaDatoEliminar)
+                .executeUpdate();
+
+        session.getTransaction().commit();
+        session.close();
+
+    }
+
 
 
     public MetodoUsuario() {
