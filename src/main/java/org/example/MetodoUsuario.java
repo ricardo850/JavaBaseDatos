@@ -4,6 +4,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MetodoUsuario {
 
     private SessionFactory sessionFactory;
@@ -57,6 +60,23 @@ public class MetodoUsuario {
 
         session.getTransaction().commit();
         session.close();
+
+    }
+
+    public ArrayList<Usuario> TraerDatos(){
+
+        ConfigHibernate();
+        session.beginTransaction();
+        ArrayList<Usuario>ListaUser = new ArrayList<>();
+
+        List<Usuario> usuarios = session.createQuery("from Usuario", Usuario.class).list();
+        ArrayList<Usuario> listaUsuarios = new ArrayList<>(usuarios);
+
+        session.getTransaction().commit();
+        session.close();
+
+        return  listaUsuarios;
+
 
     }
 
