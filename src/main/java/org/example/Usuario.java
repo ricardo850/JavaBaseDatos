@@ -3,7 +3,7 @@ package org.example;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "usuarios" )
+@Table(name = "user" )
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,5 +42,14 @@ private int cedula;
 
     public void setCedula(int cedula) {
         this.cedula = cedula;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", NombreApellido='" + NombreApellido + '\'' +
+                ", cedula=" + cedula +
+                '}';
     }
 }

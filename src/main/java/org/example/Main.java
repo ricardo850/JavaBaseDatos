@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -35,5 +36,13 @@ public class Main {
         System.out.println("escribe la cedula del dato que vas a eliminar");
         int cedulaEliminar = teclado.nextInt();
         MetodosBaseDatos.EliminarDatos(cedulaEliminar);
+
+        ArrayList<Usuario> ListaUser = MetodosBaseDatos.TraerDatos();
+
+        for (Usuario usuario : ListaUser) {
+            System.out.println(usuario.toString());
+        }
+
+
     }
 }
