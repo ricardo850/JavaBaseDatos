@@ -76,8 +76,6 @@ public class MetodoUsuario {
         session.close();
 
         return  listaUsuarios;
-
-
     }
 
 

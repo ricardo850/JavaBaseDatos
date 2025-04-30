@@ -10,7 +10,7 @@ public class Main {
         System.out.println("elija un numero " +
                 "1. para agregar un registro " +
                 "2. para actualizar un  regristro " +
-                        "3. para actualizar un registro "+
+                        "3. para eliminar un registro "+
                         "4. para ver los usuarios de registro : "
                    );
 
