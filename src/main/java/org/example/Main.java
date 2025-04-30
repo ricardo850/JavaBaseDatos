@@ -7,41 +7,72 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner teclado = new Scanner(System.in);
-        System.out.println("escribe tu nombre:");
+        System.out.println("elija un numero " +
+                "1. para agregar un registro " +
+                "2. para actualizar un  regristro " +
+                        "3. para actualizar un registro "+
+                        "4. para ver los usuarios de registro : "
+                   );
 
-        String NombreApellido = teclado.nextLine();
+        int Eleccion = teclado.nextInt();
         teclado = new Scanner(System.in);
-
-        System.out.println("escribe tu cedula:");
-        int cedula = teclado.nextInt();
-
         MetodoUsuario MetodosBaseDatos = new MetodoUsuario();
-        MetodosBaseDatos.IngresarDatos(NombreApellido,cedula);
+
+        switch (Eleccion){
+            case 1:
+                System.out.println("escribe tu nombre:");
+
+                String NombreApellido = teclado.nextLine();
+                teclado = new Scanner(System.in);
+
+                System.out.println("escribe tu cedula:");
+                int cedula = teclado.nextInt();
 
 
-        System.out.println("escribe el numero de la cedula del registro que deseas actualizar:");
+                MetodosBaseDatos.IngresarDatos(NombreApellido,cedula);
+                break;
 
-        System.out.println("escribe la cedula:");
-        int cedulaBuscar = teclado.nextInt();
+            case 2:
+                System.out.println("escribe el numero de la cedula del registro que deseas actualizar:");
 
-        teclado = new Scanner(System.in);
-        System.out.println("Ahora escribe el nombre y apellidos nuevos:");
-        String NombreApellidoActualizar = teclado.nextLine();
+                System.out.println("escribe la cedula:");
+                int cedulaBuscar = teclado.nextInt();
 
-        teclado = new Scanner(System.in);
-        System.out.println("escribe el numero de cedula nuevo:");
-        int cedulaActualizar = teclado.nextInt();
+                teclado = new Scanner(System.in);
+                System.out.println("Ahora escribe el nombre y apellidos nuevos:");
+                String NombreApellidoActualizar = teclado.nextLine();
 
-        MetodosBaseDatos.ActualizarDatos(cedulaBuscar,NombreApellidoActualizar,cedulaActualizar);
-        System.out.println("escribe la cedula del dato que vas a eliminar");
-        int cedulaEliminar = teclado.nextInt();
-        MetodosBaseDatos.EliminarDatos(cedulaEliminar);
+                teclado = new Scanner(System.in);
+                System.out.println("escribe el numero de cedula nuevo:");
+                int cedulaActualizar = teclado.nextInt();
 
-        ArrayList<Usuario> ListaUser = MetodosBaseDatos.TraerDatos();
+                MetodosBaseDatos.ActualizarDatos(cedulaBuscar,NombreApellidoActualizar,cedulaActualizar);
+                break;
 
-        for (Usuario usuario : ListaUser) {
-            System.out.println(usuario.toString());
+            case 3:
+                System.out.println("escribe la cedula del dato que vas a eliminar");
+                int cedulaEliminar = teclado.nextInt();
+                MetodosBaseDatos.EliminarDatos(cedulaEliminar);
+                break;
+
+
+            case 4:
+                ArrayList<Usuario> ListaUser = MetodosBaseDatos.TraerDatos();
+
+                for (Usuario usuario : ListaUser) {
+                    System.out.println(usuario.toString());
+                }
+                break;
+
+
         }
+
+
+
+
+
+
+
 
 
     }
